@@ -102,20 +102,20 @@ public class Queen {
 	private void print_html() throws FileNotFoundException{
 		FileOutputStream fos = new FileOutputStream("result.html");
 		PrintWriter pw = new PrintWriter(fos);
-		pw.write("<table border='5'>");
+		pw.write("<table border='1'>");
 		for(int i = 0; i < n; i++){
 			pw.write("<tr>");
 			for(int j = 0; j < n; j++){
-				if(x[i] == j) pw.write("<td bgColor='green'>1</td>");
-				else pw.write("<td bgColor = 'gray'>0</td>");
+				if(x[i] == j) pw.write("<td width='5' height='5' bgColor='red'></td>\n");
+				else pw.write("<td width='5' height='5' bgColor = 'green'></td>\n");
 			}
-			pw.write("</tr>");
+			pw.write("</tr>\n");
 		}
 		pw.write("</table>");
 		pw.close();
 	}
 	public static void main(String[] args) throws FileNotFoundException {
-		Queen nQueens = new Queen(5);
+		Queen nQueens = new Queen(100);
 		nQueens.solve();
 		nQueens.print_html();
 	}
